@@ -1,5 +1,5 @@
 """
-URL configuration for cfehome project.
+URL configuration for djsharma project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,19 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-
-from landing import views as landing_views
-from projects import views as projects_views
+from django.urls import path
 
 urlpatterns = [
-    path("",    landing_views.home_page_view, name='home'),
-    path("items/", include('items.urls')),
-    path("projects/", include('projects.urls')),
-    path("about/",    landing_views.about_page_view, name='about'),
-    path("activate/project/<slug:handle>/", 
-          projects_views.activate_project_view, name='activate_project'),
-    path("deactivate/project/", 
-           projects_views.deactivate_project_view, name='deactivate_project'),
     path("admin/", admin.site.urls),
 ]
